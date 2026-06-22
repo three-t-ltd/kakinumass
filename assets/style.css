@@ -371,8 +371,9 @@ body{font-family:var(--sans);color:var(--ink);background:var(--white);font-weigh
 .detail-block h3 .accent{color:var(--red)}
 .detail-block p{color:var(--muted);line-height:2.1;margin-bottom:1.1em}
 .detail-visual{position:relative;border-radius:var(--radius);overflow:hidden}
-.detail-visual img{width:100%;aspect-ratio:5/4;object-fit:cover;transition:transform .9s var(--ease)}
-.detail-visual:hover img{transform:scale(1.05)}
+.detail-visual img,.detail-visual .dv-media{display:block;width:100%;aspect-ratio:5/4;object-fit:cover;transition:transform .9s var(--ease);background:var(--ink)}
+.detail-visual:hover img,.detail-visual:hover .dv-media{transform:scale(1.05)}
+.detail-visual .corner{z-index:2}
 .detail-visual .corner{position:absolute;top:18px;left:18px;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;color:#fff;background:rgba(18,18,18,.6);backdrop-filter:blur(6px);padding:.5em 1em;border-radius:3px;font-weight:600}
 .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.4em}
 .chip{font-size:.8rem;font-weight:700;color:var(--ink);background:var(--paper);border:1px solid var(--line);padding:.5em 1em;border-radius:100px}
