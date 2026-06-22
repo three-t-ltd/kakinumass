@@ -134,6 +134,23 @@
     });
   });
 
+  /* ---------- Process videos: play when in view ---------- */
+  var dvVideos = doc.querySelectorAll(".dv-media");
+  if (dvVideos.length) {
+    dvVideos.forEach(function (v) { v.muted = true; v.setAttribute("muted", ""); });
+    if ("IntersectionObserver" in window) {
+      var vio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.play().catch(function () {}); }
+          else { e.target.pause(); }
+        });
+      }, { threshold: 0.25 });
+      dvVideos.forEach(function (v) { vio.observe(v); });
+    } else {
+      dvVideos.forEach(function (v) { v.play().catch(function () {}); });
+    }
+  }
+
   /* ---------- Hero background video cover-fill ---------- */
   function coverHeroVideo() {
     var box = doc.querySelector(".hero-video-bg");
